@@ -1,3 +1,18 @@
+"""
+This is a secret auction program that prompts a user in an
+auction with their name and the price they want to bid.
+
+This data is stored in a dictionary with {name: bid}
+and bids are prompted until there are no more bidders.
+
+If there's another bidder, the terminal is cleared so the secrecy
+of the auction is maintained.
+
+Then a function is called to see who has won the auction by bidding
+the highest bid.
+"""
+
+
 import os
 from art import logo
 
