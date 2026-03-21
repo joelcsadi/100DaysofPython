@@ -24,6 +24,7 @@ The user is then prompted if they want to play again.
 
 from art import logo
 import random
+import os
 
 def draw_card(hand):
     """
@@ -54,9 +55,7 @@ def bust(score):
     :param score:
     :return: is_bust: bool
     """
-    if score > 21:
-        return True
-    return False
+    return score > 21
 
 def display_score():
     """
@@ -133,3 +132,4 @@ if play_blackjack == "y":
 
         # Play another round?
         play_blackjack = input("Do you want to play blackjack? Type 'y' or 'n' ").lower()
+        os.system('cls' if os.name == "nt" else 'clear')
