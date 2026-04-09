@@ -7,6 +7,8 @@ UP = 90
 LEFT = 180
 DOWN = 270
 
+OPPOSITES = {UP:DOWN, DOWN:UP, LEFT:RIGHT, RIGHT:LEFT}
+
 class Snake:
     def __init__(self):
         """
@@ -47,21 +49,21 @@ class Snake:
         """
         Turns snake head right only if it's not facing left. The head can't turn into the tail.
         """
-        if self.head.heading() != LEFT:
+        if self.head.heading() != OPPOSITES[RIGHT]:
             self.head.setheading(RIGHT)
 
     def up(self):
         """
         Turns snake head up only if it's not facing down. The head can't turn into the tail.
         """
-        if self.head.heading() != DOWN:
+        if self.head.heading() != OPPOSITES[UP]:
             self.head.setheading(UP)
 
     def left(self):
         """
         Turns snake head left only if it's not facing right. The head can't turn into the tail.
         """
-        if self.head.heading() != RIGHT:
+        if self.head.heading() != OPPOSITES[LEFT]:
             self.head.setheading(LEFT)
 
     
@@ -69,7 +71,7 @@ class Snake:
         """
         Turns snake head down only if it's not facing up. The head can't turn into the tail.
         """
-        if self.head.heading() != UP:
+        if self.head.heading() != OPPOSITES[DOWN]:
             self.head.setheading(DOWN)
     
 
