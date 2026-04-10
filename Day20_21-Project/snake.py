@@ -26,11 +26,7 @@ class Snake:
         and adds the square segments to the segments list. 
         """
         for position in STARTING_POSITIONS:
-            new_segment = Turtle(shape="square")
-            new_segment.penup()
-            new_segment.color("white")
-            new_segment.goto(position)
-            self.segments.append(new_segment)
+            self.add_segment(position)
             
     def move(self):
         """
@@ -73,5 +69,23 @@ class Snake:
         """
         if self.head.heading() != OPPOSITES[DOWN]:
             self.head.setheading(DOWN)
+    
+    def add_segment(self, position):
+        """
+        :param position: the position of the new segment to be added to the snake body
+        Creates a new segment and adds it to the snake body at the position of the last segment.
+        """
+        new_segment = Turtle(shape="square")
+        new_segment.penup()
+        new_segment.color("white")
+        new_segment.goto(position)
+        self.segments.append(new_segment)
+    
+    def extend(self):
+        """
+        Adds a new segment to the snake body at the position of the last segment.
+        """
+        self.add_segment(self.segments[-1].position())
+
     
 
