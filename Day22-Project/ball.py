@@ -11,8 +11,8 @@ class Ball(Turtle):
         super().__init__()
         self.x = STARTINGPOSITION[0]
         self.y = STARTINGPOSITION[1]
-        self.y_move_distance = 10
-        self.x_move_distance = 10
+        self.y_move_distance = 15
+        self.x_move_distance = 15
         self.create_ball()  
     
     def create_ball(self):
