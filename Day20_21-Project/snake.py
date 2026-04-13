@@ -86,6 +86,13 @@ class Snake:
         Adds a new segment to the snake body at the position of the last segment.
         """
         self.add_segment(self.segments[-1].position())
+    
+    def reset(self):
+        for seg in self.segments:
+            seg.goto(1000,1000)
+        self.segments.clear()
+        self.create_snake()
+        self.head = self.segments[0]
 
     
 

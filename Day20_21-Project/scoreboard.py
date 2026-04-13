@@ -13,6 +13,8 @@ class Scoreboard(Turtle):
 
         super().__init__()
         self.score = -1
+        with open("Day20_21-Project/data.txt") as file:
+            self.highscore = int(file.read())
         self.goto(0,280)
         self.color(TEXTCOLOR)
         self.hideturtle()
@@ -24,7 +26,7 @@ class Scoreboard(Turtle):
         writing the new score on the screen.
         """
         self.clear()
-        self.write(f"Score:{self.score}",align=ALIGNMENT, font=(FONT))
+        self.write(f"Score:{self.score} High Score: {self.highscore}",align=ALIGNMENT, font=(FONT))
 
     def increase_score(self):
         """
@@ -33,12 +35,15 @@ class Scoreboard(Turtle):
         self.score +=1
         self.update_scoreboard()
 
-    def game_over(self):
-        """
-        Displays "GAME OVER" message on the center of the screen when the game ends.
-        """
-        self.goto(0,0)
-        self.write("GAME OVER", align=ALIGNMENT, font=FONT)
+    
+    def reset(self):
+        if self.score > self.highscore:
+            self.highscore = self.score
+            with open("Day20_21-Project/data.txt", mode="w") as file:
+                file.write(f"{self.highscore}")
+
+        self.score = 0
+        self.update_scoreboard()
 
 
     
