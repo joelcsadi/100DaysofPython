@@ -25,11 +25,7 @@ while game_is_on:
     # Game finishes and creates a csv with missing states
     elif answer_state == "Exit":
         game_is_on = False
-        learn_states = []
-        for state in all_states:
-            if state not in correct_guesses_list:
-                learn_states.append(state)
-
+        learn_states = [state for state in all_states if state not in correct_guesses_list]
         state_dict = {"State" : learn_states}
         df = pd.DataFrame(state_dict)
         df.to_csv("Day25-Project/states_to_learn.csv")
